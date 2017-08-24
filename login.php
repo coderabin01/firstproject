@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <html>
-<title>
-</title>
 <head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 <style>
 body {
@@ -14,7 +15,7 @@ body {
 }
 
 #loginbox > div:first-child {        
-    padding-bottom: 10px;    
+    padding-bottom: 0px;    
 }
 
 .iconmelon {
@@ -71,6 +72,15 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.signup_back{
+	background-color:#f5f5f5;
+}
+
+@media (min-width: 320px)
+.col-xs-12 {
+    width: 100%;
+}
 </style>
 
 </head>
@@ -78,12 +88,12 @@ body {
 <body>
 <div class="container">    
         
-    <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 
+    <div id="loginbox" class="mainbox col-xs-12 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 "> 
         
         
         <div class="panel panel-default" >
             <div class="panel-heading">
-                <div class="panel-title text-center">Login</div>
+                <div class="panel-title text-center">Registration</div>
             </div>     
 
             <div class="panel-body" >
@@ -106,11 +116,13 @@ body {
                             <button type="submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Log in</button>                          
                         </div>
                     </div>
-
+				
                 </form>     
-
-            </div>                     
-        </div>  
+            </div>          						
+					<div class="signup_back" style="text-align:right;padding:5px 15px 5px 15px">
+						Not a Member? <span style="display:inline-block; width: 20px;"></span> <a class=" " href="registration.php">Sign Up</a>
+					</div>				
+        </div>  	
     </div>
 </div>
 
