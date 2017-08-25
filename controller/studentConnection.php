@@ -11,10 +11,14 @@
 	// Query the database for user
 	$sql = "INSERT INTO student_db (fname,mname,lname,gender,age,class) VALUES ('$fname','$mname','$lname','$gender',$age,$clas)";
 
-
+	if (mysqli_query($conn, $sql)) {
+		//echo "New record created successfully";
+	} else {
+		//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	}
 
 	mysqli_close($conn);
 	
-//	header ('Location: ../registration.php');
+	header ('Location: ../registration.php');
 
 ?>

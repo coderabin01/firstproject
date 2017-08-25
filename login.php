@@ -2,9 +2,10 @@
 <html>
 <head>
   <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
 body {
     background-color: white;
@@ -77,9 +78,129 @@ body {
 	background-color:#f5f5f5;
 }
 
-@media (min-width: 320px)
-.col-xs-12 {
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content {
+    margin-left: 3rem;
+    width: 92%;
+    width: calc(100% - 3rem);
+}
+
+.input-field {
+    position: relative;
+    margin-top: 1rem;
+}
+
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content {
+    margin-left: 3rem;
+    width: 92%;
+    width: calc(100% - 3rem);
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
     width: 100%;
+    font-size: 15px;
+    margin: 0 0 5px 0;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.3s;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #26a69a;
+  box-shadow: 0 1px 0 0 #26a69a;
+}
+
+input:not([type]):focus:not([readonly]) + label,
+input[type=text]:focus:not([readonly]) + label,
+input[type=password]:focus:not([readonly]) + label,
+input[type=email]:focus:not([readonly]) + label,
+input[type=url]:focus:not([readonly]) + label,
+input[type=time]:focus:not([readonly]) + label,
+input[type=date]:focus:not([readonly]) + label,
+input[type=datetime]:focus:not([readonly]) + label,
+input[type=datetime-local]:focus:not([readonly]) + label,
+input[type=tel]:focus:not([readonly]) + label,
+input[type=number]:focus:not([readonly]) + label,
+input[type=search]:focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #26a69a;
+}
+
+.login-field {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    margin: 0;
+    padding: 0.75em;
+    position: relative;
+    width: 100%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.login-label, .login-field {
+    display: block;
+}
+
+.login, .login-field {
+    border-radius: 0.25em;
+}
+
+input {
+    line-height: normal;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.input-field .prefix {
+    position: absolute;
+    width: 3rem;
+    font-size: 25px;
+    transition: color .2s;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.material-icons {
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: 'liga';
+    -moz-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
 }
 </style>
 
@@ -93,22 +214,26 @@ body {
         
         <div class="panel panel-default" >
             <div class="panel-heading">
-                <div class="panel-title text-center">Registration</div>
+                <div class="panel-title text-center">Login</div>
             </div>     
 
             <div class="panel-body" >
 
                 <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST">
                    
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="user" type="text" class="form-control" name="user" value="" placeholder="User">                                        
-                    </div>
-
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
-                    </div>                                                                  
+				  <div class="login">
+						<div class="input-field col-sm-12">
+							<i class="material-icons prefix">account_circle</i>
+							<input class="login-field  login-field-username" id="username-1" type="text" placeholder="Username">
+						</div>
+						<div class="input-field col-sm-12 right">
+							<i class="material-icons prefix">lock</i>
+							<input class="login-field  login-field-password pad-rig" id="password-1" type="password" placeholder="Password" >
+						</div> 
+						<div class="input-field col-sm-12 right" style="padding:0px 0px 0px 40px">
+							<input id="remember" type="checkbox" /><label for="remember">Remember Me</label>
+						</div>
+				  </div>                                                               
 
                     <div class="form-group">
                         <!-- Button -->
@@ -117,7 +242,7 @@ body {
                         </div>
                     </div>
 				
-                </form>     
+                </form>     	
             </div>          						
 					<div class="signup_back" style="text-align:right;padding:5px 15px 5px 15px">
 						Not a Member? <span style="display:inline-block; width: 20px;"></span> <a class=" " href="registration.php">Sign Up</a>
